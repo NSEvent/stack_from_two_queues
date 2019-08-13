@@ -10,7 +10,9 @@ class MyStack {
 public:
 	MyStack() {}
 
+	// O(1) push
 	void push(T val) {
+		// push val to non-empty queue
 		if (q2.empty()) {
 			q1.push(val);	
 		}	
@@ -19,7 +21,10 @@ public:
 		}
 	}
 
+	// O(n) pop
 	T pop() {
+		// pop and push n-1 elements from non-empty queue to other empty queue
+		// last element in the queue being popped is the return val
 		if (!q1.empty()) {
 			while (q1.size() > 1 ) {
 				q2.push(q1.front());
